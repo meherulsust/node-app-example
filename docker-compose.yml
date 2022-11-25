@@ -1,0 +1,17 @@
+version: '3'
+services:
+  npoly-backend:
+    container_name: test-app
+    image: test-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - test-app-net
+    ports:
+      - '5588:8080'
+    volumes:
+        - ./.env:/app/.env
+networks:
+ test-app-net:
+    driver: bridge
